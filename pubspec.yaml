@@ -3,7 +3,7 @@ description: Debug and Sharing your HTTP Request/Response with UI Inspector.
 version: 2.2.5
 
 environment:
-  sdk: '>=3.4.0 <4.0.0'
+  sdk: '>=3.3.0 <4.0.0'
 
 
 dependencies:
