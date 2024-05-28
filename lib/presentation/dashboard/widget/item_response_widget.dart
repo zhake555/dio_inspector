@@ -18,36 +18,51 @@ class ItemResponseWidget extends StatelessWidget {
         color: Colors.white,
         child: Padding(
           padding: const EdgeInsets.all(10.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
+          child: Column(
             children: [
-              Container(
-                  decoration: BoxDecoration(
-                    color:
-                        data.response?.responseStatusCode?.colorByStatusCode ??
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                      decoration: BoxDecoration(
+                        color: data.response?.responseStatusCode
+                                ?.colorByStatusCode ??
                             Colors.grey,
-                    borderRadius: BorderRadius.circular(4),
-                  ),
-                  padding: const EdgeInsets.all(6),
-                  child: Text(
-                    '${data.request?.method}',
-                    style: const TextStyle(color: Colors.white),
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                      padding: const EdgeInsets.all(6),
+                      child: Text(
+                        '${data.request?.method}',
+                        style: const TextStyle(color: Colors.white),
+                      )),
+                  Expanded(
+                      child: Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: Text(
+                      '${data.request?.path}',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                          color: data.response?.responseStatusCode
+                                  ?.colorByStatusCode ??
+                              Colors.grey),
+                    ),
                   )),
-              Expanded(
-                  child: Padding(
-                padding: const EdgeInsets.only(left: 8.0),
-                child: Text(
-                  '${data.request?.path}',
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                      color: data.response?.responseStatusCode
-                              ?.colorByStatusCode ??
-                          Colors.grey),
-                ),
-              )),
-              textStatusCode(
-                  statusCode: data.response?.responseStatusCode ?? 0),
+                  Column(
+                    children: [
+                      textStatusCode(
+                          statusCode: data.response?.responseStatusCode ?? 0),
+                      Text(
+                        '${data.response?.duration}',
+                        style: const TextStyle(fontSize: 12),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              Text(
+                '${data.request?.params}',
+              )
             ],
           ),
         ),
