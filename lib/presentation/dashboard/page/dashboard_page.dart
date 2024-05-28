@@ -61,7 +61,7 @@ class DashboardPage extends StatelessWidget {
                   })
                 ],
                 title: !provider.isSearch
-                    ? const Text('Activities')
+                    ? const Text('Http Activities')
                     : TextField(
                         style: const TextStyle(color: Colors.white),
                         autofocus: true,
