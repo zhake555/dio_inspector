@@ -61,7 +61,7 @@ class DashboardPage extends StatelessWidget {
                   })
                 ],
                 title: !provider.isSearch
-                    ? const Text('Http Activities')
+                    ? const Text('Activities')
                     : TextField(
                         style: const TextStyle(color: Colors.white),
                         autofocus: true,
@@ -92,7 +92,7 @@ class DashboardPage extends StatelessWidget {
       ),
     );
   }
-  
+
   Widget buildBody(BuildContext context, DashboardNotifier provider) {
     if (provider.getAllResponsesState == RequestState.loading) {
       return const Center(
