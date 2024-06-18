@@ -1,6 +1,6 @@
 name: dio_request_inspector
 description: Debug and Sharing your HTTP Request/Response with UI Inspector.
-version: 2.2.5
+version: 2.2.6
 
 environment:
   sdk: '>=3.3.0 <4.0.0'
@@ -14,8 +14,8 @@ dependencies:
   get_it: ^7.7.0
   equatable: ^2.0.5
   provider: ^6.1.2
-  intl: ^0.19.0
-  share_plus: ^9.0.0
+  intl: ^0.18.1
+  share_plus: ^8.0.3
   rxdart: ^0.27.7
 
 dev_dependencies:
