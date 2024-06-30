@@ -54,10 +54,20 @@ class ItemResponseWidget extends StatelessWidget {
                       statusCode: data.response?.responseStatusCode ?? 0),
                 ],
               ),
-              if (data.request?.params != null)
-                Text('PARAMS: ${data.request?.params}'),
-              if (data.request?.requestBody != null)
-                Text('BODY: ${data.request?.requestBody}')
+              if (data.request?.params != null &&
+                  data.request?.params != 'null' &&
+                  (data.request?.params?.isNotEmpty ?? false))
+                Padding(
+                  padding: const EdgeInsets.only(top: 8),
+                  child: Text('PARAMS: ${data.request?.params}'),
+                ),
+              if (data.request?.requestBody != null &&
+                  data.request?.requestBody != 'null' &&
+                  (data.request?.requestBody?.isNotEmpty ?? false))
+                Padding(
+                  padding: const EdgeInsets.only(top: 8),
+                  child: Text('BODY: ${data.request?.requestBody}'),
+                )
             ],
           ),
         ),
