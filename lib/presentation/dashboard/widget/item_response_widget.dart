@@ -19,10 +19,12 @@ class ItemResponseWidget extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
                       decoration: BoxDecoration(
@@ -48,21 +50,14 @@ class ItemResponseWidget extends StatelessWidget {
                               Colors.grey),
                     ),
                   )),
-                  Column(
-                    children: [
-                      textStatusCode(
-                          statusCode: data.response?.responseStatusCode ?? 0),
-                      Text(
-                        '${data.response?.duration}',
-                        style: const TextStyle(fontSize: 12),
-                      ),
-                    ],
-                  ),
+                  textStatusCode(
+                      statusCode: data.response?.responseStatusCode ?? 0),
                 ],
               ),
-              Text(
-                '${data.request?.params}',
-              )
+              if (data.request?.params != null)
+                Text('PARAMS: ${data.request?.params}'),
+              if (data.request?.requestBody != null)
+                Text('BODY: ${data.request?.requestBody}')
             ],
           ),
         ),
