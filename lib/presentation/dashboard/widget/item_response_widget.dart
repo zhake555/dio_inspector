@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class ItemResponseWidget extends StatelessWidget {
   final HttpActivity data;
 
-  const ItemResponseWidget({Key? key, required this.data}) : super(key: key);
+  const ItemResponseWidget({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +20,8 @@ class ItemResponseWidget extends StatelessWidget {
           padding: const EdgeInsets.all(10.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
                       decoration: BoxDecoration(
