@@ -114,43 +114,47 @@ class ItemResponseWidget extends StatelessWidget {
                   (data.request?.params?.isNotEmpty ?? false))
                 Padding(
                   padding: const EdgeInsets.only(top: 8, left: 8),
-                  child: Row(
+                  child: RichText(
+                      text: TextSpan(
+                    style: const TextStyle(fontSize: 16),
                     children: [
-                      Text('Query: ',
+                      TextSpan(
+                          text: 'Query: ',
                           style: TextStyle(
                               color: AppColor.primary,
                               fontWeight: FontWeight.bold)),
-                      Expanded(
-                        child: Text(
-                          '${data.request?.params}',
-                          style: TextStyle(
-                              color: AppColor.primary,
-                              fontWeight: FontWeight.normal),
-                        ),
+                      TextSpan(
+                        text: '${data.request?.params}',
+                        style: TextStyle(
+                            color: AppColor.primary,
+                            fontWeight: FontWeight.normal),
                       ),
                     ],
-                  ),
+                  )),
                 ),
               if (data.request?.requestBody != null &&
                   data.request?.requestBody != 'null' &&
                   (data.request?.requestBody?.isNotEmpty ?? false))
                 Padding(
                   padding: const EdgeInsets.only(top: 8, left: 8),
-                  child: Row(
+                  child: RichText(
+                      text: TextSpan(
+                    style: const TextStyle(fontSize: 16),
                     children: [
-                      Text('Body: ',
+                      TextSpan(
+                          text: 'Body: ',
                           style: TextStyle(
                               color: AppColor.primary,
                               fontWeight: FontWeight.bold)),
-                      Expanded(
-                        child: Text('${data.request?.requestBody}',
-                            style: TextStyle(
-                                color: AppColor.primary,
-                                fontWeight: FontWeight.normal)),
+                      TextSpan(
+                        text: '${data.request?.requestBody}',
+                        style: TextStyle(
+                            color: AppColor.primary,
+                            fontWeight: FontWeight.normal),
                       ),
                     ],
-                  ),
-                )
+                  )),
+                ),
             ],
           ),
         ),
