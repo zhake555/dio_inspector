@@ -31,18 +31,20 @@ class DetailPage extends StatelessWidget {
   }
 
   Widget _buildBody(BuildContext context) {
-    return Consumer<DetailNotifier>(
-      builder: (context, provider, child) {
-        return TabBarView(
-          children: [
-            _overviewWidget(provider.overviews),
-            _requestWidget(provider.requests),
-            _responseWidget(provider.responses),
-            _errorWidget(provider.errors),
-          ],
-        );
-      },
-    );
+    return SafeArea(
+        top: false,
+        child: Consumer<DetailNotifier>(
+          builder: (context, provider, child) {
+            return TabBarView(
+              children: [
+                _overviewWidget(provider.overviews),
+                _requestWidget(provider.requests),
+                _responseWidget(provider.responses),
+                _errorWidget(provider.errors),
+              ],
+            );
+          },
+        ));
   }
 
   Widget _responseWidget(List<Widget> responses) {
