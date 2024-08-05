@@ -120,11 +120,13 @@ class ItemResponseWidget extends StatelessWidget {
                           style: TextStyle(
                               color: AppColor.primary,
                               fontWeight: FontWeight.bold)),
-                      Text(
-                        '${data.request?.params}',
-                        style: TextStyle(
-                            color: AppColor.primary,
-                            fontWeight: FontWeight.normal),
+                      Expanded(
+                        child: Text(
+                          '${data.request?.params}',
+                          style: TextStyle(
+                              color: AppColor.primary,
+                              fontWeight: FontWeight.normal),
+                        ),
                       ),
                     ],
                   ),
@@ -140,10 +142,12 @@ class ItemResponseWidget extends StatelessWidget {
                           style: TextStyle(
                               color: AppColor.primary,
                               fontWeight: FontWeight.bold)),
-                      Text('${data.request?.requestBody}',
-                          style: TextStyle(
-                              color: AppColor.primary,
-                              fontWeight: FontWeight.normal)),
+                      Expanded(
+                        child: Text('${data.request?.requestBody}',
+                            style: TextStyle(
+                                color: AppColor.primary,
+                                fontWeight: FontWeight.normal)),
+                      ),
                     ],
                   ),
                 )
