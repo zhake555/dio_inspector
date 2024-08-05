@@ -27,7 +27,7 @@ extension HttpResponseMapper on Response {
 }
 
 extension HttpActivityMapper on HttpError {
-  HttpActivity toHttpActivity(DioError e) {
+  HttpActivity toHttpActivity(DioException e) {
     return HttpActivity(
         response: HttpResponse(
       responseStatusCode: e.response?.statusCode,
@@ -45,7 +45,7 @@ extension HttpActivityMapper on HttpError {
 extension HttpRequestMapper on RequestOptions {
   HttpRequest toHttpRequest() {
     return HttpRequest(
-      baseUrl: baseUrl,
+      baseUrl: uri.origin,
       path: uri.path,
       params: _jsonUtil.encodeRawJson(uri.parameters),
       method: method,
@@ -119,7 +119,7 @@ List<dynamic> getFromData(RequestOptions options) {
   }
 }
 
-extension HttpErrorToResponseMapper on DioError {
+extension HttpErrorToResponseMapper on DioException {
   HttpResponse toHttpErrorFromResponse() {
     return HttpResponse(
       createdAt: DateTime.now().millisecondsSinceEpoch,
@@ -131,7 +131,7 @@ extension HttpErrorToResponseMapper on DioError {
   }
 }
 
-extension HttpErrorMapper on DioError {
+extension HttpErrorMapper on DioException {
   HttpError toHttpError() {
     return HttpError(
       createdAt: DateTime.now().millisecondsSinceEpoch,
@@ -139,6 +139,7 @@ extension HttpErrorMapper on DioError {
       errorStatusCode: response?.statusCode,
       errorHashCode: requestOptions.hashCode,
       errorMessage: message,
+      errorSize: _byteUtil.stringToBytes(message.toString()),
     );
   }
 }
