@@ -113,15 +113,22 @@ class ItemResponseWidget extends StatelessWidget {
                   data.request?.params != 'null' &&
                   (data.request?.params?.isNotEmpty ?? false))
                 Padding(
-                  padding: const EdgeInsets.only(top: 8),
-                  child: Text('PARAMS: ${data.request?.params}'),
+                  padding: const EdgeInsets.only(top: 8, left: 8),
+                  child: Text(
+                    'QUERY: ${data.request?.params}',
+                    style: TextStyle(
+                        color: AppColor.primary, fontWeight: FontWeight.normal),
+                  ),
                 ),
               if (data.request?.requestBody != null &&
                   data.request?.requestBody != 'null' &&
                   (data.request?.requestBody?.isNotEmpty ?? false))
                 Padding(
-                  padding: const EdgeInsets.only(top: 8),
-                  child: Text('BODY: ${data.request?.requestBody}'),
+                  padding: const EdgeInsets.only(top: 8, left: 8),
+                  child: Text('BODY: ${data.request?.requestBody}',
+                      style: TextStyle(
+                          color: AppColor.primary,
+                          fontWeight: FontWeight.normal)),
                 )
             ],
           ),
