@@ -114,10 +114,19 @@ class ItemResponseWidget extends StatelessWidget {
                   (data.request?.params?.isNotEmpty ?? false))
                 Padding(
                   padding: const EdgeInsets.only(top: 8, left: 8),
-                  child: Text(
-                    'QUERY: ${data.request?.params}',
-                    style: TextStyle(
-                        color: AppColor.primary, fontWeight: FontWeight.normal),
+                  child: Row(
+                    children: [
+                      Text('Query: ',
+                          style: TextStyle(
+                              color: AppColor.primary,
+                              fontWeight: FontWeight.bold)),
+                      Text(
+                        '${data.request?.params}',
+                        style: TextStyle(
+                            color: AppColor.primary,
+                            fontWeight: FontWeight.normal),
+                      ),
+                    ],
                   ),
                 ),
               if (data.request?.requestBody != null &&
@@ -125,10 +134,18 @@ class ItemResponseWidget extends StatelessWidget {
                   (data.request?.requestBody?.isNotEmpty ?? false))
                 Padding(
                   padding: const EdgeInsets.only(top: 8, left: 8),
-                  child: Text('BODY: ${data.request?.requestBody}',
-                      style: TextStyle(
-                          color: AppColor.primary,
-                          fontWeight: FontWeight.normal)),
+                  child: Row(
+                    children: [
+                      Text('Body: ',
+                          style: TextStyle(
+                              color: AppColor.primary,
+                              fontWeight: FontWeight.bold)),
+                      Text('${data.request?.requestBody}',
+                          style: TextStyle(
+                              color: AppColor.primary,
+                              fontWeight: FontWeight.normal)),
+                    ],
+                  ),
                 )
             ],
           ),
